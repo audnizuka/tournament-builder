@@ -14,4 +14,12 @@ describe("testing teamGenerator class", () => {
         const teams = teamGenerator.getTeams();
         expect(teams).to.have.lengthOf(2);
     });
+
+    it("teams should contains 3 players", () => {
+        teamGenerator.generateTeams();
+        const teams = teamGenerator.getTeams();
+        teams.forEach(team => {
+            expect(team.players).to.have.lengthOf(3);
+        });
+    });
 });
