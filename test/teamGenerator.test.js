@@ -8,4 +8,10 @@ describe("testing teamGenerator class", () => {
     beforeEach(() => {
         teamGenerator = new TeamGenerator(players);
     });
+
+    it("should generate 2 teams", () => {
+        teamGenerator.generateTeams();
+        const teams = teamGenerator.getTeams();
+        expect(teams).to.have.lengthOf(2);
+    });
 });
