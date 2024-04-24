@@ -16,6 +16,7 @@ class TeamGenerator {
         name: teamName,
         players: teamPlayers,
       };
+
       this.teams.push(team);
       teamIndex++;
     }

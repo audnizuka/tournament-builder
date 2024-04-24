@@ -1,3 +1,4 @@
+
 class TournamentGenerator {
   constructor(teams) {
       this.teams = teams; // Chaque équipe est un objet { name: string, players: array }

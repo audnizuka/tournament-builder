@@ -22,4 +22,10 @@ describe("testing teamGenerator class", () => {
             expect(team.players).to.have.lengthOf(3);
         });
     });
+
+    //TDD
+    it('should not have duplicate player names', () => {
+        const uniquePlayerNames = new Set(teamGenerator.players);
+        expect(teamGenerator.players.length).to.equal(uniquePlayerNames.size);
+    });
 });
