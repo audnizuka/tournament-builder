@@ -36,4 +36,11 @@ describe('TournamentGenerator', () => {
         console.log(tournamentGenerator.finalStages[0].length)
         expect(tournamentGenerator.finalStages[0].length).to.equal(players.length / 6);
     });
+
+    it('should generate final stages correctly', () => {
+        tournamentGenerator.generatePoules();
+        tournamentGenerator.simulatePoulesMatches();
+        tournamentGenerator.generateFinalStages();
+        expect(tournamentGenerator.finalStages.length).to.be.greaterThan(1);
+    });
 });
