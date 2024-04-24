@@ -22,4 +22,11 @@ describe('TournamentGenerator', () => {
         tournamentGenerator.generatePoules();
         expect(tournamentGenerator.poules.length).to.equal(tournamentGenerator.teams.length / 4);
     });
+
+    it('should generate poules with correct number of teams', () => {
+        tournamentGenerator.generatePoules();
+        tournamentGenerator.poules.forEach(poule => {
+            expect(poule.length).to.equal(4);
+        });
+    });
 });
