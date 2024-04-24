@@ -23,6 +23,14 @@ class TeamGenerator {
         name: teamName,
         players: teamPlayers,
       };
+
+      // TDD vérifie les doublons
+      let uniquePlayerNames = new Set(teamPlayers);
+      if (teamPlayers.length !== uniquePlayerNames.size) {
+        console.error(`Erreur : Doublon détecté dans l'équipe ${teamName}.`);
+        return;
+      }
+
       this.teams.push(team);
       teamIndex++;
     }

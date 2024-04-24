@@ -49,4 +49,6 @@ describe('TournamentGenerator', () => {
         expect(finalStages.length).to.be.greaterThan(1);
         expect(finalStages[finalStages.length - 1].length).to.equal(1);
     });
+
+
 });
