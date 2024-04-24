@@ -3,7 +3,7 @@ import { expect } from "chai";
 
 describe("testing teamGenerator class", () => {
     let teamGenerator;
-    const players = ['player1', 'player2', 'player3', 'player4', 'player5', 'player6', ['player7', 'player8']];
+    const players = ['player1', 'player2', 'player3', 'player4', 'player5', 'player6'];
 
     beforeEach(() => {
         teamGenerator = new TeamGenerator(players);
@@ -25,10 +25,11 @@ describe("testing teamGenerator class", () => {
     });
 
     it("players who join the generator together should be in the same team and teams should be equals", () => {
+        const players = ['player1', 'player2', 'player3', 'player4', 'player5', 'player6', ['player7', 'player8'], 'player9'];
+        teamGenerator = new TeamGenerator(players);
         teamGenerator.generateTeams();
         const teams = teamGenerator.getTeams();
         teams.forEach(team => {
-            console.log(team);
             expect(team.players).to.have.lengthOf(teamGenerator.playersPerTeam);
             if (team.players.includes('player7')) {
                 expect(team.players).to.include('player8');
