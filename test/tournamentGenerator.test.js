@@ -43,4 +43,10 @@ describe('TournamentGenerator', () => {
         tournamentGenerator.generateFinalStages();
         expect(tournamentGenerator.finalStages.length).to.be.greaterThan(1);
     });
+
+    it('should generate tournament correctly', () => {
+        const finalStages = tournamentGenerator.generateTournament();
+        expect(finalStages.length).to.be.greaterThan(1);
+        expect(finalStages[finalStages.length - 1].length).to.equal(1);
+    });
 });
