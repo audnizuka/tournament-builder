@@ -6,11 +6,18 @@ class TeamGenerator {
   }
 
   generateTeams() {
-    let shuffledPlayers = [...this.players].sort(() => 0.5 - Math.random()); // Mélange aléatoire des joueurs
+    let groupedPlayers = this.players.map(player => Array.isArray(player) ? player : [player]);
+    let shuffledGroups = [...groupedPlayers].sort(() => 0.5 - Math.random()); // Mélange aléatoire des joueurs
     let teamIndex = 0;
 
-    while (shuffledPlayers.length > 0) {
-      let teamPlayers = shuffledPlayers.splice(0, this.playersPerTeam);
+    while (shuffledGroups.length > 0) {
+      let teamPlayers = [];
+
+      while (teamPlayers.length < this.playersPerTeam && shuffledGroups.length > 0) {
+        let group = shuffledGroups.shift();
+        teamPlayers.push(...group.slice(0, this.playersPerTeam - teamPlayers.length));
+      }
+
       let teamName = `Équipe ${teamIndex + 1}`;
       let team = {
         name: teamName,
